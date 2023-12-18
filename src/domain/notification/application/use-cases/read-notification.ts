@@ -4,7 +4,7 @@ import { NotificationsRepository } from '../repositories/notifications-repositor
 import { ResourceNotFoundError } from '@/core/errors/resource-not-found-error'
 import { NotAllowedError } from '@/core/errors/not-allowed-error'
 
-interface ReadNotificationUseCaseRequest {
+type ReadNotificationUseCaseRequest = {
   recipientId: string
   notificationId: string
 }

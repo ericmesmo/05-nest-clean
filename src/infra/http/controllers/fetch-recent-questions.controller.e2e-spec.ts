@@ -4,6 +4,7 @@ import { JwtService } from '@nestjs/jwt'
 import { Test } from '@nestjs/testing'
 import request from 'supertest'
 import { AppModule } from '@/infra/app.module'
+import { DatabaseModule } from '../database/database.module'
 
 describe('Fetch recent questions (E2E)', () => {
   let app: INestApplication
@@ -55,6 +56,8 @@ describe('Fetch recent questions (E2E)', () => {
       .get('/questions')
       .set('Authorization', `Bearer ${accessToken}`)
       .send()
+
+    console.log(response.body)
 
     expect(response.statusCode).toBe(200)
     expect(response.body).toEqual({

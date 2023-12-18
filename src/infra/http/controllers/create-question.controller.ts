@@ -3,6 +3,7 @@ import { CurrentUser } from '@/infra/auth/current-user-decorator'
 import { JwtAuthGuard } from '@/infra/auth/jwt-auth.guard'
 import { TokenSchema } from '@/infra/auth/jwt.strategy'
 import { ZodValidationPip } from '../pipes/zod-validation.pipe'
+
 import { z } from 'zod'
 import { CreateQuestionUseCase } from '@/domain/forum/application/use-cases/create-question'
 
@@ -13,7 +14,7 @@ const createQuestionBodySchema = z.object({
 
 type CreateQuestionBodySchema = z.infer<typeof createQuestionBodySchema>
 
-@Controller('questions')
+@Controller('/questions')
 @UseGuards(JwtAuthGuard)
 export class CreateQuestionController {
   constructor(private createQuestion: CreateQuestionUseCase) {}
@@ -25,11 +26,12 @@ export class CreateQuestionController {
     body: CreateQuestionBodySchema,
   ) {
     const { title, content } = body
+    const userId = user.sub
 
     await this.createQuestion.execute({
       title,
       content,
-      authorId: user.sub,
+      authorId: userId,
       attachmentsIds: [],
     })
   }

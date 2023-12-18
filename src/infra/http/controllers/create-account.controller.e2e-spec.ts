@@ -4,6 +4,7 @@ import { INestApplication } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
 import request from 'supertest'
 import { PrismaService } from '../database/prisma/prisma.service'
+import { DatabaseModule } from '../database/database.module'
 
 describe('Create Account (E2E)', () => {
   let app: INestApplication
@@ -11,7 +12,7 @@ describe('Create Account (E2E)', () => {
 
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
-      imports: [AppModule],
+      imports: [AppModule, DatabaseModule],
     }).compile()
 
     app = moduleRef.createNestApplication()
