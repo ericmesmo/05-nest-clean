@@ -1,16 +1,20 @@
 import { Module } from '@nestjs/common'
 import { PrismaService } from './prisma/prisma.service'
-import { PrismaQuestionsRepository } from './prisma/repositorie/prisma-questions-repository'
-import { PrismaQuestionCommentsRepository } from './prisma/repositorie/prisma-question-comments-repository'
-import { PrismaQuestionAttachmentsRepository } from './prisma/repositorie/prisma-question-attachments-repository'
-import { PrismaAnswersRepository } from './prisma/repositorie/prisma-answers-repository'
-import { PrismaAnswerCommentsRepository } from './prisma/repositorie/prisma-answer-comments-repository'
-import { PrismaAnswerAttachmentsRepository } from './prisma/repositorie/prisma-answer-attachments-repository'
+import { PrismaQuestionsRepository } from './prisma/repositories/prisma-questions-repository'
+import { PrismaQuestionCommentsRepository } from './prisma/repositories/prisma-question-comments-repository'
+import { PrismaQuestionAttachmentsRepository } from './prisma/repositories/prisma-question-attachments-repository'
+import { PrismaAnswersRepository } from './prisma/repositories/prisma-answers-repository'
+import { PrismaAnswerCommentsRepository } from './prisma/repositories/prisma-answer-comments-repository'
+import { PrismaAnswerAttachmentsRepository } from './prisma/repositories/prisma-answer-attachments-repository'
+import { QuestionsRepository } from '@/domain/forum/application/repositories/questions-repository'
 
 @Module({
   providers: [
     PrismaService,
-    PrismaQuestionsRepository,
+    {
+      provide: QuestionsRepository,
+      useClass: PrismaQuestionsRepository,
+    },
     PrismaQuestionCommentsRepository,
     PrismaQuestionAttachmentsRepository,
     PrismaAnswersRepository,
@@ -19,7 +23,7 @@ import { PrismaAnswerAttachmentsRepository } from './prisma/repositorie/prisma-a
   ],
   exports: [
     PrismaService,
-    PrismaQuestionsRepository,
+    QuestionsRepository,
     PrismaQuestionCommentsRepository,
     PrismaQuestionAttachmentsRepository,
     PrismaAnswersRepository,
