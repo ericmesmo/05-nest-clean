@@ -8,12 +8,12 @@ import { CreateQuestionUseCase } from '@/domain/forum/application/use-cases/crea
 
 Module({
   imports: [DatabaseModule],
+  providers: [CreateQuestionUseCase],
   controllers: [
     CreateAccountController,
     AuthenticateController,
     CreateQuestionController,
     FetchRecentQuestionsController,
   ],
-  providers: [CreateQuestionUseCase],
 })
 export class HttpModule {}
