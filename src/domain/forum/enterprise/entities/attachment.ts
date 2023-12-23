@@ -2,13 +2,13 @@ import { Entity } from '@/core/entities/entity'
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
 
 type AttachmentProps = {
-  name: string
+  title: string
   url: string
 }
 
 export class Attachment extends Entity<AttachmentProps> {
-  get name() {
-    return this.props.name
+  get title() {
+    return this.props.title
   }
 
   get url() {
