@@ -1,15 +1,11 @@
-import { envSchema } from './env'
+import { envSchema } from './env/env'
 import { AuthModule } from './auth/auth.module'
 import { HttpModule } from './http/http.module'
 import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
-import { CreateAccountController } from './http/controllers/create-account.controller'
-import { AuthenticateController } from './http/controllers/authenticate.controller'
-import { CreateQuestionController } from './http/controllers/create-question.controller'
-import { FetchRecentQuestionsController } from './http/controllers/fetch-recent-questions.controller'
 import { DatabaseModule } from './http/database/database.module'
-import { CreateQuestionUseCase } from '@/domain/forum/application/use-cases/create-question'
-import { FetchRecentQuestionsUseCase } from '@/domain/forum/application/use-cases/fetch-recent-questions'
+import { CryptographyModule } from './cryptography/cryptography.module'
+import { EnvModule } from './env/env.module'
 
 @Module({
   imports: [
@@ -17,15 +13,11 @@ import { FetchRecentQuestionsUseCase } from '@/domain/forum/application/use-case
       validate: (env) => envSchema.parse(env),
       isGlobal: true,
     }),
+    HttpModule,
     AuthModule,
     DatabaseModule,
+    CryptographyModule,
+    EnvModule,
   ],
-  controllers: [
-    CreateAccountController,
-    AuthenticateController,
-    CreateQuestionController,
-    FetchRecentQuestionsController,
-  ],
-  providers: [CreateQuestionUseCase, FetchRecentQuestionsUseCase],
 })
 export class AppModule {}
