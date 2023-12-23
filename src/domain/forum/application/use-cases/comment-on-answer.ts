@@ -3,6 +3,7 @@ import { AnswerComment } from '@/domain/forum/enterprise/entities/answer-comment
 import { AnswerCommentsRepository } from '@/domain/forum/application/repositories/answer-comments-repository'
 import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
 import { Either, right } from '@/core/either'
+import { Injectable } from '@nestjs/common'
 
 type CommentOnAnswerUseCaseRequest = {
   authorId: string
@@ -15,6 +16,7 @@ type CommentOnAnswerUseCaseResponse = Either<
   { answerComment: AnswerComment }
 >
 
+@Injectable()
 export class CommentOnAnswerUseCase {
   constructor(
     private answersRepository: AnswersRepository,

@@ -1,7 +1,7 @@
 import { BadRequestException, Body, Controller, Post } from '@nestjs/common'
 import { CurrentUser } from '@/infra/auth/current-user-decorator'
 import { TokenSchema } from '@/infra/auth/jwt.strategy'
-import { ZodValidationPip } from '../pipes/zod-validation.pipe'
+import { ZodValidationPipe } from '../pipes/zod-validation.pipe'
 
 import { z } from 'zod'
 import { CreateQuestionUseCase } from '@/domain/forum/application/use-cases/create-question'
@@ -20,7 +20,7 @@ export class CreateQuestionController {
   @Post()
   async handle(
     @CurrentUser() user: TokenSchema,
-    @Body(new ZodValidationPip(createQuestionBodySchema))
+    @Body(new ZodValidationPipe(createQuestionBodySchema))
     body: CreateQuestionBodySchema,
   ) {
     const { title, content } = body

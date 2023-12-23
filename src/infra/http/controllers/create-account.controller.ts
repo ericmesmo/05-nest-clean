@@ -6,7 +6,7 @@ import {
   Post,
   UsePipes,
 } from '@nestjs/common'
-import { ZodValidationPip } from '../pipes/zod-validation.pipe'
+import { ZodValidationPipe } from '../pipes/zod-validation.pipe'
 import { z } from 'zod'
 import { RegisterStudentUseCase } from '@/domain/forum/application/use-cases/register-student'
 import { StudentAlreadyExistsError } from '@/domain/forum/application/use-cases/errors/student-already-existis-error'
@@ -22,7 +22,7 @@ type CreateAccountBodySchema = z.infer<typeof createAccountBodySchema>
 
 @Controller('/accounts')
 @Public()
-@UsePipes(new ZodValidationPip(createAccountBodySchema))
+@UsePipes(new ZodValidationPipe(createAccountBodySchema))
 export class CreateAccountController {
   constructor(private registerStudent: RegisterStudentUseCase) {}
   @Post()

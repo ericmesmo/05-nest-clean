@@ -1,5 +1,5 @@
 import { BadRequestException, Controller, Get, Query } from '@nestjs/common'
-import { ZodValidationPip } from '../pipes/zod-validation.pipe'
+import { ZodValidationPipe } from '../pipes/zod-validation.pipe'
 
 import { z } from 'zod'
 import { FetchRecentQuestionsUseCase } from '@/domain/forum/application/use-cases/fetch-recent-questions'
@@ -12,7 +12,7 @@ const pageQueryParamSchema = z
   .transform(Number)
   .pipe(z.number().min(1))
 
-const queryValidationPipe = new ZodValidationPip(pageQueryParamSchema)
+const queryValidationPipe = new ZodValidationPipe(pageQueryParamSchema)
 
 type PageQueryParamSchema = z.infer<typeof pageQueryParamSchema>
 
