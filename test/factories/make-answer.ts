@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 
 import { Answer, AnswerProps } from '@/domain/forum/enterprise/entities/answer'
-import { UniqueEntityID } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from '@/infra/http/database/prisma/prisma.service'
 import { PrismaAnswerMapper } from '@/infra/http/database/prisma/mappers/prisma-answer-mapper'

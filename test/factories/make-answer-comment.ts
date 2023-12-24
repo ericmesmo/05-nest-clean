@@ -4,7 +4,7 @@ import {
   AnswerComment,
   AnswerCommentProps,
 } from '@/domain/forum/enterprise/entities/answer-comment'
-import { UniqueEntityID } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from '@/infra/http/database/prisma/prisma.service'
 import { PrismaAnswerCommentMapper } from '@/infra/http/database/prisma/mappers/prisma-answer-comment-mapper'

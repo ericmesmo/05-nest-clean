@@ -1,6 +1,6 @@
 import { Answer as PrismaAnswer, Prisma } from '@prisma/client'
 import { Answer } from '@/domain/forum/enterprise/entities/answer'
-import { UniqueEntityID } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 
 export class PrismaAnswerMapper {
   static toDomain(raw: PrismaAnswer): Answer {

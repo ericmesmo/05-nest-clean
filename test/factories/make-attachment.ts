@@ -5,7 +5,7 @@ import {
   AttachmentProps,
 } from '@/domain/forum/enterprise/entities/attachment'
 import { Injectable } from '@nestjs/common'
-import { UniqueEntityID } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { PrismaService } from '@/infra/http/database/prisma/prisma.service'
 import { PrismaAttachmentMapper } from '@/infra/http/database/prisma/mappers/prisma-attachment-mapper'
 

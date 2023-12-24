@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 import { Optional } from '@/core/types/optional'
-import { UniqueEntityID } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { AnswerAttachmentList } from './answer-attachment-list'
 import { AggregateRoot } from '@/core/entities/aggregate-root'
 import { AnswerCreatedEvent } from '../events/answer-created-event'

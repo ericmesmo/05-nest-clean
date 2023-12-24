@@ -2,7 +2,7 @@ import {
   QuestionAttachment,
   QuestionAttachmentProps,
 } from '@/domain/forum/enterprise/entities/question-attachment'
-import { UniqueEntityID } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { PrismaService } from '@/infra/http/database/prisma/prisma.service'
 import { Injectable } from '@nestjs/common'
 
