@@ -1,4 +1,4 @@
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/value-objects/unique-entity-id'
 import { Question } from '../../enterprise/entities/question'
 import { QuestionsRepository } from '../repositories/questions-repository'
 import { Either, right } from '@/core/either'
@@ -26,7 +26,7 @@ export class CreateQuestionUseCase {
     attachmentsIds = [],
   }: CreateQuestionUseCaseRequest): Promise<CreateQuestionUseCaseResponse> {
     const question = Question.create({
-      authorId: new UniqueEntityId(authorId),
+      authorId: new UniqueEntityID(authorId),
       title,
       content,
     })
@@ -34,7 +34,7 @@ export class CreateQuestionUseCase {
     const questionAttachments = await attachmentsIds.map((attachmentId) => {
       return QuestionAttachment.create({
         questionId: question.id,
-        attachmentId: new UniqueEntityId(attachmentId),
+        attachmentId: new UniqueEntityID(attachmentId),
       })
     })
 

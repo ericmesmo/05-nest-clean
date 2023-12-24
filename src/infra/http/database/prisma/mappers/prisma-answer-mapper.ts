@@ -1,18 +1,18 @@
 import { Answer as PrismaAnswer, Prisma } from '@prisma/client'
 import { Answer } from '@/domain/forum/enterprise/entities/answer'
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/value-objects/unique-entity-id'
 
 export class PrismaAnswerMapper {
   static toDomain(raw: PrismaAnswer): Answer {
     return Answer.create(
       {
         content: raw.content,
-        questionId: new UniqueEntityId(raw.questionId),
-        authorId: new UniqueEntityId(raw.authorId),
+        questionId: new UniqueEntityID(raw.questionId),
+        authorId: new UniqueEntityID(raw.authorId),
         createdAt: raw.createdAt,
         updatedAt: raw.updatedAt,
       },
-      new UniqueEntityId(raw.id),
+      new UniqueEntityID(raw.id),
     )
   }
 

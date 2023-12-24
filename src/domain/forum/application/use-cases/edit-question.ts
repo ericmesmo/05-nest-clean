@@ -6,7 +6,7 @@ import { NotAllowedError } from '../../../../core/errors/not-allowed-error'
 import { QuestionAttachmentsRepository } from '../repositories/question-attachments-repository'
 import { QuestionAttachmentList } from '../../enterprise/entities/question-attachment-list'
 import { QuestionAttachment } from '../../enterprise/entities/question-attachment'
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/value-objects/unique-entity-id'
 import { Injectable } from '@nestjs/common'
 
 type EditQuestionUseCaseRequest = {
@@ -56,7 +56,7 @@ export class EditQuestionUseCase {
     const questionAttachments = await attachmentsIds.map((attachmentId) => {
       return QuestionAttachment.create({
         questionId: question.id,
-        attachmentId: new UniqueEntityId(attachmentId),
+        attachmentId: new UniqueEntityID(attachmentId),
       })
     })
 

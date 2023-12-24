@@ -1,13 +1,13 @@
 import dayjs from 'dayjs'
 import { Optional } from '@/core/types/optional'
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/value-objects/unique-entity-id'
 import { AnswerAttachmentList } from './answer-attachment-list'
 import { AggregateRoot } from '@/core/entities/aggregate-root'
 import { AnswerCreatedEvent } from '../events/answer-created-event'
 
 export type AnswerProps = {
-  authorId: UniqueEntityId
-  questionId: UniqueEntityId
+  authorId: UniqueEntityID
+  questionId: UniqueEntityID
   content: string
   attachments: AnswerAttachmentList
   createdAt: Date
@@ -63,7 +63,7 @@ export class Answer extends AggregateRoot<AnswerProps> {
 
   static create(
     props: Optional<AnswerProps, 'createdAt' | 'attachments'>,
-    id?: UniqueEntityId,
+    id?: UniqueEntityID,
   ) {
     const answer = new Answer(
       {

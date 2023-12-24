@@ -4,19 +4,19 @@ import {
   QuestionComment,
   QuestionCommentProps,
 } from '@/domain/forum/enterprise/entities/question-comment'
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/value-objects/unique-entity-id'
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from '@/infra/http/database/prisma/prisma.service'
 import { PrismaQuestionCommentMapper } from '@/infra/http/database/prisma/mappers/prisma-question-comment-mapper'
 
 export function makeQuestionComment(
   override: Partial<QuestionCommentProps> = {},
-  id?: UniqueEntityId,
+  id?: UniqueEntityID,
 ) {
   const question = QuestionComment.create(
     {
-      authorId: new UniqueEntityId(),
-      questionId: new UniqueEntityId(),
+      authorId: new UniqueEntityID(),
+      questionId: new UniqueEntityID(),
       content: faker.lorem.text(),
       ...override,
     },

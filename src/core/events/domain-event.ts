@@ -1,6 +1,6 @@
-import { UniqueEntityId } from '../entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '../entities/unique-entity-id'
 
 export type DomainEvent = {
   ocurredAt: Date
-  getAggregateId(): UniqueEntityId
+  getAggregateId(): UniqueEntityID
 }

@@ -4,19 +4,19 @@ import {
   AnswerComment,
   AnswerCommentProps,
 } from '@/domain/forum/enterprise/entities/answer-comment'
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/value-objects/unique-entity-id'
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from '@/infra/http/database/prisma/prisma.service'
 import { PrismaAnswerCommentMapper } from '@/infra/http/database/prisma/mappers/prisma-answer-comment-mapper'
 
 export function makeAnswerComment(
   override: Partial<AnswerCommentProps> = {},
-  id?: UniqueEntityId,
+  id?: UniqueEntityID,
 ) {
   const answer = AnswerComment.create(
     {
-      authorId: new UniqueEntityId(),
-      answerId: new UniqueEntityId(),
+      authorId: new UniqueEntityID(),
+      answerId: new UniqueEntityID(),
       content: faker.lorem.text(),
       ...override,
     },

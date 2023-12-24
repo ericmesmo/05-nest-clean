@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/value-objects/unique-entity-id'
 import {
   Question,
   QuestionProps,
@@ -11,11 +11,11 @@ import { PrismaQuestionMapper } from '@/infra/http/database/prisma/mappers/prism
 
 export function makeQuestion(
   override: Partial<QuestionProps> = {},
-  id?: UniqueEntityId,
+  id?: UniqueEntityID,
 ) {
   const question = Question.create(
     {
-      authorId: new UniqueEntityId(),
+      authorId: new UniqueEntityID(),
       title: faker.lorem.sentence(),
       content: faker.lorem.text(),
       ...override,

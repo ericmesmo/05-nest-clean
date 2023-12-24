@@ -2,7 +2,7 @@ import { DomainEvent } from '../events/domain-event'
 import { AggregateRoot } from '../entities/aggregate-root'
 import { DomainEvents } from '@/core/events/domain-events'
 import { vi } from 'vitest'
-import { UniqueEntityId } from '../entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '../entities/unique-entity-id'
 
 class CustomAggregate extends AggregateRoot<null> {
   static create() {
@@ -23,7 +23,7 @@ class CustomAggregateCreated implements DomainEvent {
     this.ocurredAt = new Date()
   }
 
-  public getAggregateId(): UniqueEntityId {
+  public getAggregateId(): UniqueEntityID {
     return this.aggregate.id
   }
 }

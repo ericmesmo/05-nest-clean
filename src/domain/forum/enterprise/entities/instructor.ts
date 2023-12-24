@@ -1,5 +1,5 @@
 import { Entity } from '@/core/entities/entity'
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/value-objects/unique-entity-id'
 
 type InstructorProps = {
   name: string
@@ -10,7 +10,7 @@ export class Instructor extends Entity<InstructorProps> {
     return this.props.name
   }
 
-  static create(props: InstructorProps, id?: UniqueEntityId) {
+  static create(props: InstructorProps, id?: UniqueEntityID) {
     const instructor = new Instructor(props, id)
 
     return instructor

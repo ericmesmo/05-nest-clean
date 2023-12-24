@@ -3,7 +3,7 @@ import { makeAnswer } from 'test/factories/make-answer'
 import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questions-repository'
 import { ChooseQuestionBestAnswerUseCase } from './chose-question-best-answer'
 import { makeQuestion } from 'test/factories/make-questions'
-import { UniqueEntityId } from '@/core/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/value-objects/unique-entity-id'
 import { InMemoryAnswerAttachmentsRepository } from 'test/repositories/in-memory-answer-attachments-repository'
 import { InMemoryQuestionAttachmentsRepository } from 'test/repositories/in-memory-question-attachments-repository'
 
@@ -52,7 +52,7 @@ describe('Choose Question Best Answer', () => {
 
   it('should not be able to to choose another user question best answer', async () => {
     const question = makeQuestion({
-      authorId: new UniqueEntityId('author-1'),
+      authorId: new UniqueEntityID('author-1'),
     })
 
     const answer = makeAnswer({
