@@ -71,3 +71,9 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## Annotations
+
+### Domain Events & Cache
+
+- É normal atualizar constantamente ou se 15 pessoas acessarem nos últimos 10 minutos elas irão enxergar a mesma coisa?

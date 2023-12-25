@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config'
 import { DatabaseModule } from './http/database/database.module'
 import { CryptographyModule } from './cryptography/cryptography.module'
 import { EnvModule } from './env/env.module'
+import { EventsModule } from './events/events.module'
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { EnvModule } from './env/env.module'
     DatabaseModule,
     CryptographyModule,
     EnvModule,
+    EventsModule,
   ],
 })
 export class AppModule {}
